@@ -1,6 +1,25 @@
 # PIGNet2: A versatile deep learning-based protein-ligand interaction prediction model for accurate binding affinity scoring and virtual screening
 This repository is the official implementation of [PIGNet2: A versatile deep learning-based protein-ligand interaction prediction model for accurate binding affinity scoring and virtual screening](https://arxiv.org/abs/2307.01066).
 
+## Installation (Simon)
+
+Installed with the following commands
+
+```
+conda create -n pignet2 python=3.9
+conda activate pignet2
+conda install rdkit=2022.03.4 openbabel pymol-open-source -c conda-forge
+conda install dimorphite-dl -c conda-forge
+cd ~/GitRepos
+git clone https://github.com/mseok/PIGNet2.git
+cd PIGNet2/
+vim requirements.txt # comment out dimorphite dl, as we have installed with conda
+pip install -r requirements.txt
+conda install reduce -c bioconda
+python src/exe/predict.py ./src/ckpt/pda_0.pt -p examples/protein.pdb -l examples/ligand_single_conformation.sdf -o examples/case1.txt
+python src/exe/predict.py ./src/ckpt/pda_0.pt -p examples/protein.pdb -l examples/ligand1.sdf -o examples/case2.txt
+```
+
 ## Installation
 You can download this repository by `git clone https://github.com/mseok/PIGNet2.git`. Then, you can proceed with the following steps.
 
